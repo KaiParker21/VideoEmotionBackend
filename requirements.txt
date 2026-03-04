@@ -1,6 +1,8 @@
-fastapi
-uvicorn
-opencv-python-headless
-fer
-numpy
-python-multipart
+fastapi==0.135.1
+uvicorn==0.41.0
+opencv-python-headless==4.11.0.86
+fer==25.10.3
+numpy==1.26.4
+python-multipart==0.0.22
+tensorflow-cpu==2.15.1
+setuptools<81
