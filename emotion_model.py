@@ -1,24 +1,22 @@
 import cv2
 import numpy as np
 try:
-    # Older fer releases export FER at package root.
     from fer import FER
 except ImportError:
-    # Newer fer releases keep FER in fer.fer.
     from fer.fer import FER
 
-# Initialize detector. Using default Haar Cascade for speed.
-detector = FER()
+detector = FER(mtcnn=True)
 
 def detect_emotion(image_bytes: bytes):
-    # Convert incoming bytes to OpenCV image format
     np_arr = np.frombuffer(image_bytes, np.uint8)
     img = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
     
     if img is None:
         return "error", 0.0
         
-    # top_emotion returns a tuple: ('happy', 0.99)
+    cv2.imwrite("debug_frame.jpg", img) 
+    print("Debug: Saved incoming frame to debug_frame.jpg")
+        
     result = detector.top_emotion(img)
     
     if result and result[0] is not None:
