@@ -14,8 +14,8 @@ def detect_emotion(image_bytes: bytes):
     if img is None:
         return "error", 0.0
         
-    cv2.imwrite("debug_frame.jpg", img) 
-    print("Debug: Saved incoming frame to debug_frame.jpg")
+    # cv2.imwrite("debug_frame.jpg", img) 
+    # print("Debug: Saved incoming frame to debug_frame.jpg")
         
     result = detector.top_emotion(img)
     
