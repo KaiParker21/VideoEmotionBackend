@@ -1,6 +1,11 @@
 import cv2
 import numpy as np
-from fer import FER
+try:
+    # Older fer releases export FER at package root.
+    from fer import FER
+except ImportError:
+    # Newer fer releases keep FER in fer.fer.
+    from fer.fer import FER
 
 # Initialize detector. Using default Haar Cascade for speed.
 detector = FER()
